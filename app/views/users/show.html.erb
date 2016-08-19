@@ -10,18 +10,18 @@
   <p><b>Current City:</b> <%= @user.curr_city %>
   </div>
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-7 col-md-offset-1">
       <div class="panel panel-default">
         <div class="panel-body">
-          <% @comments.each do |comment| %>
+          <h4>This is where the comments will go </h4>
           <div class='row'>
-            <div class="col-md-9 col-xs-12">
+            <div class="col-md-12 col-xs-12">
               <ul class="list-group">
                 <li class="list-group-item">
-                  <h4 class='inline-header'>Title:</h4>
-                  <%= link_to comment.title , users_path  %>
+                  <h4 class='inline-header'>Title:
+                  <p> Link to comment#show</p>
+                  </h4>
                 </li>
-                <% end %>
               </div>
             </div>
           </div>
