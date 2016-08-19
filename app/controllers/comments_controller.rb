@@ -1,6 +1,17 @@
 class CommentsController < ApplicationController
   def index
-    @user = User.findById(session[:user_id])
-    @comments = @user.comments
   end
+
+  def new
+  end
+
+  def create
+  end
+
+  def show
+  end
+
+  def destroy
+  end
+
 end
