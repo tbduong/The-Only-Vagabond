@@ -1,51 +1,33 @@
 <div id="welcome">
-<h2>Welcome, <%= @user.first %>.</h2>
+  <h2>Welcome, <%= @user.first %>.</h2>
 </div>
 <div class="col-md-3 col-xs-12">
-  <img src="images/800x800.png" alt="profile-pic">
+  <div class="col-md-3 col-xs-12 thumbnail">
+    <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
+  </div>
   <h2><b><%= @user.first %></b> <%= @user.last %></h2>
   <p><b>Member since:</b>  <%=@user.created_at.strftime("%m/%d/%Y") %></p>
   <p><b>Current City:</b> <%= @user.curr_city %>
   </div>
 
-  <div class="col-md-7 col-md-offset-1">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class='row'>
-          <div class="col-md-9 col-xs-12">
-            <h2> Lorem Ipsum </h2>
-            <h3>City, Country</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default">
+        <div class="panel-body">
 
-  <div class="col-md-7 col-md-offset-4">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class='row'>
-          <div class="col-md-9 col-xs-12">
-            <h2> Lorem Ipsum </h2>
-            <h3>City, Country</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+          <!-- begin comment  row -->
+        <% @comments.each do |comment| %>
+          <div class='row'>
+            <div class="col-md-9 col-xs-12">
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <h4 class='inline-header'>Title:</h4>
+                  <%= link_to comment.title , users_path  %>
+                </li>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="col-md-7 col-md-offset-4">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class='row'>
-          <div class="col-md-9 col-xs-12">
-            <h2> Lorem Ipsum </h2>
-            <h3>City, Country</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
