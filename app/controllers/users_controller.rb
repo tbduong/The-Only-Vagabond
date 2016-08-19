@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :logged_in?, only: [:show]
 
   def new
     @user = User.new
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     if params[:id].to_s == current_user[:id].to_s
-      render :show
+      redirect_to ('/')
     else
       redirect_to ('/')
       flash[:notice] = "You are not Authorized for this profile"
