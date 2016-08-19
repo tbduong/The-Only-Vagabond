@@ -1,3 +1,7 @@
-<div>
-  Welcome, <%= @user.first %> Member since,  <%=@user.created_at.strftime("%m/%d/%Y") %>
-</div>
+
+  <h1>Welcome, <%= @user.first %>.</h1>
+
+
+      <h2><strong><%= @user.first %></strong> <%= @user.last %></h2>
+      Member since,  <%=@user.created_at.strftime("%m/%d/%Y") %>
+      
