@@ -1,11 +1,13 @@
-Login
 
-<%= form_for @user, url: "/sessions", method: "post" do |f| %>
+<div class="login-wrapper">
+  Login
+  <%= form_for @user, url: "/sessions", method: "post" do |f| %>
   <div>
-    <%= f.text_field :email, placeholder: "Email" %>
+    <%= f.text_field :email, placeholder: "Email", class: 'field'%>
   </div>
   <div>
-    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.password_field :password, placeholder: "Password", class: 'field'%>
   </div>
   <%= f.submit "Sign In" %>
-<% end %>
+  <% end %>
+</div>

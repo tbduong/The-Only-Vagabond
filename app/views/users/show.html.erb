@@ -9,14 +9,11 @@
   <p><b>Member since:</b>  <%=@user.created_at.strftime("%m/%d/%Y") %></p>
   <p><b>Current City:</b> <%= @user.curr_city %>
   </div>
-
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">
         <div class="panel-body">
-
-          <!-- begin comment  row -->
-        <% @comments.each do |comment| %>
+          <% @comments.each do |comment| %>
           <div class='row'>
             <div class="col-md-9 col-xs-12">
               <ul class="list-group">
