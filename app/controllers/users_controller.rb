@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_id(params[:id])
     if params[:id].to_s == current_user[:id].to_s
-      redirect_to ('/')
+      render :show
     else
       redirect_to ('/')
       flash[:notice] = "You are not Authorized for this profile"
