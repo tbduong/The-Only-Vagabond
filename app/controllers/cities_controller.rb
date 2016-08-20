@@ -22,4 +22,10 @@ class CitiesController < ApplicationController
     @city.delete(params[:id])
   end
 
+private
+
+def city_params
+  params.require(:city).permit(:name, :comment_id)
+
+end
 end
