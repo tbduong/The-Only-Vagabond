@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :comments
+  has_many :cities, through: :comments
   has_secure_password
   validates :email, uniqueness: true
 

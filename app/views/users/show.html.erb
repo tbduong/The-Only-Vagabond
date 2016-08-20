@@ -1,6 +1,11 @@
 <div id="welcome">
   <h2>Welcome, <%= @user.first %>.</h2>
-</div>
+</div> <br>
+
+<% flash.each do |i, m| %>
+<h4>Excuse me sir/ma'am/fighter jet! <%= m %></h4>
+<% end %>
+
 <div class="col-md-3 col-xs-12">
   <div class="col-md-3 col-xs-12 thumbnail">
     <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
