@@ -1,1 +1,22 @@
-<h1> comments#index </h1>
+<h1 align="center"> Comments Index </h1>
+<br>
+<% @comments.each do |comment| %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h2> (City Name) <%= comment.city_id %></h2>
+        <br>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3> <%= comment.title %> </h3>
+            <h5> (Username) <%= comment.user_id %> </h5>
+            <hr></hr>
+            <p> <%= comment.text %> </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
