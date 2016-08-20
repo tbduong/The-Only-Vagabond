@@ -18,17 +18,18 @@
     <div class="col-md-7 col-md-offset-1">
       <div class="panel panel-default">
         <div class="panel-body">
-          <h4>This is where the comments will go </h4>
+          <h4> City </h4>
           <div class='row'>
             <div class="col-md-12 col-xs-12">
               <ul class="list-group">
-                <li class="list-group-item">
-                  <h4 class='inline-header'>Title:
-                  <p> Link to comment#show</p>
-                  </h4>
-                </li>
+
+                    <% current_user.comments.each do |comment| %>
+                    <li class="list-group-item">
+                     <%= link_to comment[:title], comment_path(comment[:id]) %>
+                  </li>
               </div>
             </div>
+              <% end %>
           </div>
         </div>
       </div>
