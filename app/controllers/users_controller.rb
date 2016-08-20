@@ -12,18 +12,19 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to @user
     else
-      redirect_to ('/')
-      flash[:notice] = "email already exists"
+      flash[:notice] = 'email already exists'
+      redirect_to('/signup')
     end
   end
 
   def show
     @user = User.find_by_id(params[:id])
-    if params[:id].to_s == current_user[:id].to_s
+    if id_authentic?
       render :show
     else
-      redirect_to ('/')
-      flash[:notice] = "You are not Authorized for this profile"
+      puts id_authentic?
+      flash[:notice] = 'You are not Authorized for this profile'
+      redirect_to user_path(current_user.id)
     end
   end
 
