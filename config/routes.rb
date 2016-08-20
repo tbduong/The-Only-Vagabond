@@ -8,8 +8,13 @@ Rails.application.routes.draw do
   post '/users', to: 'users#create'
   get '/users/:id', to: 'users#show', as: 'user'
 
-  get "/login", to: "sessions#new"
-  get "/logout", to: "sessions#destroy"
-  post "/sessions", to: "sessions#create"
+  get '/login', to: 'sessions#new'
+  get '/logout', to: 'sessions#destroy'
+  post '/sessions', to: 'sessions#create'
 
+  get '/comments', to: 'comments#index', as: 'comments'
+  get "/cities/:id/new", to: "comments#new", as: "new_comment"
+  post "/comments", to: "comments#create"
+  delete "/comments/:id", to: "comments#destroy"
+  get "/comments/:id", to: "comment#show", as: "comment"
 end

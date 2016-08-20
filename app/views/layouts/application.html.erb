@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TheOnlyVagabond</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <div class="other-nav">
-      <% if current_user %>
-        <%= link_to 'profile', user_path(@user) %>
-        <%= link_to 'logout', logout_path %>
-      <% else %>
-      <%= link_to 'login', login_path %>
-      <%= link_to 'signup', new_user_path %>
-      <% end %>
-    </div>
-    <%= yield %>
-
-
-  </body>
+<head>
+  <title>TheOnlyVagabond</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <div class="other-nav">
+    <% if current_user %>
+    <%= link_to 'profile', user_path(@user) %>
+    <%= link_to 'logout', logout_path %>
+    <% else %>
+    <%= link_to 'login', login_path %>
+    <%= link_to 'signup', new_user_path %>
+    <% end %>
+  </div>
+  <%= yield %>
+</body>
 </html>

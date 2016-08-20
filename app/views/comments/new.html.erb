@@ -1,0 +1,20 @@
+<h1> comment#new </h1>
+
+
+<%= form_for @comment do |f| %>
+  <div>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </div>
+  <div>
+    <%= f.text_field :text, placeholder: "Floor Count" %>
+  </div>
+  <div>
+    <%= f.hidden_field :user_id %>
+    <%= hidden_field_tag 'number', current_user.id  %>
+  </div>
+  <div>
+    <%= f.hidden_field :city_id %>
+    <%= hidden_field_tag 'number', params[:id] %>
+  </div>
+  <%= f.submit %>
+  <% end %>
