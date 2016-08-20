@@ -1,1 +1,8 @@
-<h1> comments#index </h1>
+<h1> Comments Index </h1>
+
+<% @comments.each do |comment| %>
+<div class="col-md-6 col-xs-12" id="comment-entry">
+<span><%= comment.title %></span>
+<span> <%= comment.text %> </span>
+</div>
+<% end %>
