@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   get '/cities/:id', to: 'cities#show', as: 'city'
 
   get '/comments', to: 'comments#index', as: 'comments'
+  get "/comments/new", to: "comments#new", as: "new_comment"
+  post "/comments", to: "comments#create"
+  delete "/comments/:id", to: "comments#destroy"
+  get "/comments/:id", to: "comment#show", as: "comment"
 end
