@@ -15,8 +15,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    comment_name = params[:id]
-    @comment = Comment.find_by_name(params[:id])
+    @comment = Comment.find_by_id(params[:id])
     render :show
   end
 
@@ -26,7 +25,7 @@ class CommentsController < ApplicationController
   end
 
   private
-  def comment_params 
+  def comment_params
    params.require(:comment).permit(:id, :name )
   end
 
