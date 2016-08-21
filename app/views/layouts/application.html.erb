@@ -7,21 +7,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-static-top">
+  <nav class="navbar navbar-inverse">
     <div class="container">
-      <div class="login-nav">
-        <% if current_user %>
-        <%= link_to 'profile', user_path(current_user) %>
-        <%= link_to 'logout', logout_path %>
-        <% else %>
-        <%= link_to 'login', login_path %>
-        <%= link_to 'signup', new_user_path %>
-        <% end %>
-      </div>
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Cities', cities_path %>
+      <% if current_user %>
+      <%= link_to 'Profile', user_path(current_user) %>
+      <%= link_to 'Logout', logout_path %>
+      <% else %>
+      <%= link_to 'Login', login_path %>
+      <%= link_to 'Sign Up', new_user_path %>
+      <% end %>
     </div>
   </nav>
-
-
   <%= yield %>
 </body>
 </html>
