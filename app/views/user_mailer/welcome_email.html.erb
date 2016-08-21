@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <h1>Welcome to Vagabond!</h1>
+    <p> We're super excited to hear about all your awesome adventures <%= @user.first %>!</p>
+    <p> Your username is <%= @user.username %>.</p>
+    <p> Enjoy your stay! <%= @url %></p>
+    <%= yield %>
+  </body>
+</html>
