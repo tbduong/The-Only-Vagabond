@@ -1,6 +1,6 @@
 <h1> Cities Index </h1>
 <% @cities.each do |city| %>
-<ul>
-  <li> <%= link_to city.name, city_path(city[:id]) %></li>
-</ul>
-  <% end %>
+  <div class="city">
+    <%= link_to city.name, city_path(city[:id]) %></li>
+  </div>
+<% end %>
