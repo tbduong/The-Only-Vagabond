@@ -1,6 +1,11 @@
 <h1> comment#new </h1>
 
 <%= form_for @comment do |f| %>
+
+ <div>
+<%= f.select 'city_id',
+options_for_select(@cities.collect{|c| [ c.name, c.id] }) %>       
+ </div>
  <div>
    <%= f.text_field :title, placeholder: "Title" %>
  </div>
@@ -8,15 +13,10 @@
    <%= f.text_area :text, placeholder: "Text" %>
  </div>
  <div>
- <%= f.hidden_field :user_id %>
-       <%= hidden_field_tag 'integer', current_user.id  %>
+ <%= f.hidden_field :user_id, value: current_user.id %>
+      
  </div>
- <div>
-<%= f.hidden_field :city_id %>
-       <%= hidden_field_tag 'integer', current_user.id  %>
-</div>
- <div>
-   <%= f.number_field :floor_area, placeholder: "Floor Area" %>
- </div>
+
  <%= f.submit %>
  <% end %>
+ 
