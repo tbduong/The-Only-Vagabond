@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   get "/comments/new", to: "comments#new", as: "new_comment"
   get "cities/:id/comments/:id", to: "comments#show", as: "comment"
   post "/comments", to: "comments#create"
+  get "/comments/:id", to: "comments#show", as: "comment"
+
   delete "/comments/:id", to: "comments#destroy"
 end

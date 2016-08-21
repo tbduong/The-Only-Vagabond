@@ -1,9 +1,7 @@
 <div class="image">
   <img src=" <%=@city.city_image %>">
-  <h1> <%= @city.name %> </h1>
+  <h1 class="city-name"> <%= @city.name %> </h1>
 </div>
-
-
 
 <br>
 <% @city.comments.each do |comment| %>
