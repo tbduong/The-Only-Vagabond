@@ -12,9 +12,14 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   post '/sessions', to: 'sessions#create'
 
+  get '/cities', to: 'cities#index', as: 'cities'
+  get '/cities/:id', to: 'cities#show', as: 'city'
+
   get '/comments', to: 'comments#index', as: 'comments'
-  get "/cities/:id/new", to: "comments#new", as: "new_comment"
-  post "/comments", to: "comments#create"
-  delete "/comments/:id", to: "comments#destroy"
-  get "/comments/:id", to: "comment#show", as: "comment"
+  get '/comments/new', to: 'comments#new', as: 'new_comment'
+  get '/cities/:id/comments/:id', to: 'comments#show', as: 'comment'
+  post '/comments', to: 'comments#create'
+  get '/cities/:id/comments/:id/edit', to: 'comments#edit', as: 'edit_comment'
+  patch '/cities/:id/comments/:id', to: 'comments#update'
+  delete '/comments/:id', to: 'comments#destroy', as: "delete_comment"
 end

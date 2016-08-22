@@ -8,10 +8,13 @@ module SessionsHelper
   end
   def logged_in?
     if current_user == nil
-      redirect_to new_session_path
+      redirect_to('/')
     end
   end
   def logout
     @current_user = session[:user_id] = nil
+  end
+  def id_authentic?
+    params[:id].to_s == current_user[:id].to_s
   end
 end

@@ -1,20 +1,17 @@
-<h1> comment#new </h1>
-
-
+<h1> Create New </h1>
 <%= form_for @comment do |f| %>
-  <div>
-    <%= f.text_field :title, placeholder: "Title" %>
-  </div>
-  <div>
-    <%= f.text_field :text, placeholder: "Floor Count" %>
-  </div>
-  <div>
-    <%= f.hidden_field :user_id %>
-    <%= hidden_field_tag 'number', current_user.id  %>
-  </div>
-  <div>
-    <%= f.hidden_field :city_id %>
-    <%= hidden_field_tag 'number', params[:id] %>
-  </div>
-  <%= f.submit %>
-  <% end %>
+<div>
+  <h3><%= f.select 'city_id',
+  options_for_select(@cities.collect{|c| [ c.name, c.id] }) %>    </h3>
+</div>
+<div>
+  <h3> <%= f.text_field :title, placeholder: "Title" %> </h3>
+</div>
+<div>
+  <h3><%= f.text_area :text, placeholder: "Text" %> </h3>
+</div>
+<div>
+  <h3><%= f.hidden_field :user_id, value: current_user.id %> </h3>
+  <%= f.submit "Submit", :class => "btn btn-primary add" %>
+</div>
+<% end %>

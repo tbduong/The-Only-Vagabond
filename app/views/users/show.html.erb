@@ -1,30 +1,41 @@
 <div id="welcome">
-  <h2>Welcome, <%= @user.first %>.</h2>
-</div>
+  <h3>Welcome, <%= @user.first %>.</h3>
+</div> <br>
+
+<% flash.each do |i, m| %>
+<h4>Excuse me sir/ma'am/fighter jet! <%= m %></h4>
+<% end %>
+
 <div class="col-md-3 col-xs-12">
   <div class="col-md-3 col-xs-12 thumbnail">
     <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
   </div>
-  <h2><b><%= @user.first %></b> <%= @user.last %></h2>
+  <h1><b><%= @user.first %></b> <%= @user.last %></h1>
   <p><b>Member since:</b>  <%=@user.created_at.strftime("%m/%d/%Y") %></p>
   <p><b>Current City:</b> <%= @user.curr_city %>
   </div>
-  <div class="row">
-    <div class="col-md-7 col-md-offset-1">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h4>This is where the comments will go </h4>
-          <div class='row'>
-            <div class="col-md-12 col-xs-12">
+  <div class="post-wrapper">
+    <% current_user.comments.each do |comment| %>
+    <div class="row">
+      <div class="col-md-7 col-md-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3> <%= comment.city.name %>  </h3>
+            <div class='row'>
+              <div class="col-md-12 col-xs-12">
+                <div class="col-md-1 col-xs-12 thumbnail">
+                  <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
+                </div>
+              </div>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <h4 class='inline-header'>Title:
-                  <p> Link to comment#show</p>
-                  </h4>
+                  <%= link_to comment[:title], comment_path(comment[:id]) %>
                 </li>
-              </div>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <% end %>
+  </div>

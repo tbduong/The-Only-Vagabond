@@ -1,22 +1,22 @@
 <h1> Sign Up </h1>
 <%= form_for @user do |user| %>
   <div>
-    <%= user.text_field :first, placeholder: "First Name" %>
+    <h3><%= user.text_field :first, placeholder: "First Name" %></h3>
   </div>
   <div>
-    <%= user.text_field :last, placeholder: "Last Name" %>
+    <h3><%= user.text_field :last, placeholder: "Last Name" %></h3>
   </div>
   <div>
-    <%= user.text_field :email, placeholder: "Email" %>
+    <h3><%= user.text_field :email, placeholder: "Email" %></h3>
   </div>
   <div>
-    <%= user.text_field :username, placeholder: "Desired Username" %>
+  <h3><%= user.text_field :username, placeholder: "Desired Username" %></h3>
   </div>
   <div>
-    <%= user.password_field :password, placeholder: "Password" %>
+    <h3><%= user.password_field :password, placeholder: "Password" %>
   </div>
   <div>
-    <%= user.text_field :curr_city, placeholder: "Current City" %>
+    <h3><%= user.text_field :curr_city, placeholder: "Current City" %></h3>
   </div>
-  <%= user.submit "Sign Up" %>
+  <%= user.submit "Sign Up", :class => "btn btn-primary signup" %>
 <% end %>
