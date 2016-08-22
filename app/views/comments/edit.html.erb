@@ -4,10 +4,10 @@
   <br>
 <%= form_for @comment do |f| %>
 <div class="form-title">
-  <%= f.text_field :title, placeholder: :title %>
+  <h3><%= f.text_field :title, placeholder: :title %> </h3>
 </div>
 <div class="form-text">
-  <%= f.text_area :text, placeholder: :text%>
+  <h3> <%= f.text_area :text, placeholder: :text%> </h3>
 </div>
 <%= f.submit "Save Changes", :class => "btn btn-primary" %>
 </div>
