@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
 
 	def new
+		if session[:user_id] == nil 
 		@user = User.new
 		render :new
+		end
+		
+		redirect_to current_user
 	end
 	def create
 		@user = User.confirm(user_params)
