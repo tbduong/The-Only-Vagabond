@@ -2,7 +2,7 @@
   <img src=" <%=@city.city_image %>">
   <h1 class="city-name"> <%= @city.name %> </h1>
 </div>
-  <%= button_to "New Post", new_comment_path, method: :get %>
+  <%= button_to "New Entry", new_comment_path, method: :get, :class => 'btn btn-primary add' %>
 <br>
 <% @city.comments.each do |comment| %>
 <div class="row">
@@ -11,10 +11,10 @@
       <div class="panel-body">
         <h3> <%= link_to comment.title, comment_path(comment.id) %>  </h3>
         <h5> <%= comment.user.first %> </h5>
-        <hr></hr>
-        <p>
+        <div class="panel-body"><p>
           <%= comment.text %>
         </p>
+      </div>
       </div>
     </div>
   </div>
