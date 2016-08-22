@@ -4,7 +4,7 @@
 
  <div>
 <%= f.select 'city_id',
-options_for_select(@cities.collect{|c| [ c.name, c.id] }) %>       
+options_for_select(@cities.collect{|c| [ c.name, c.id] }) %>
  </div>
  <div>
    <%= f.text_field :title, placeholder: "Title" %>
@@ -14,9 +14,8 @@ options_for_select(@cities.collect{|c| [ c.name, c.id] }) %>
  </div>
  <div>
  <%= f.hidden_field :user_id, value: current_user.id %>
-      
+
  </div>
 
  <%= f.submit %>
  <% end %>
- 
