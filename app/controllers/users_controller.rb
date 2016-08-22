@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :logged_in?, only: [:show]
-
+  
   def new
     @user = User.new
     render :new
@@ -27,6 +27,18 @@ class UsersController < ApplicationController
       redirect_to user_path(current_user.id)
     end
   end
+  def edit
+    @user = User.find_by_id(params[:id])
+  end
+
+  def update
+   @user = User.find_by_id(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path(current_user.id)
+    else
+      render "new"
+  end
+end
 
   private
 
