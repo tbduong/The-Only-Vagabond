@@ -5,10 +5,10 @@
   options_for_select(@cities.collect{|c| [ c.name, c.id] }) %>    </h3>
 </div>
 <div>
-  <h3> <%= f.text_field :title, placeholder: "Title" %> </h3>
+  <h3><%= f.text_field :title, placeholder: "Title", class: "form-field"%> </h3> 
 </div>
 <div>
-  <h3><%= f.text_area :text, placeholder: "Text" %> </h3>
+  <h3><%= f.text_area :text, placeholder: "Text", class: "form-field" %> </h3>
 </div>
 <div>
   <h3><%= f.hidden_field :user_id, value: current_user.id %> </h3>
