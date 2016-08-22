@@ -1,5 +1,5 @@
 <div id="welcome">
-  <h2>Welcome, <%= @user.first %>.</h2>
+  <h3>Welcome, <%= @user.first %>.</h3>
 </div> <br>
 
 <% flash.each do |i, m| %>
@@ -10,7 +10,7 @@
   <div class="col-md-3 col-xs-12 thumbnail">
     <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
   </div>
-  <h2><b><%= @user.first %></b> <%= @user.last %></h2>
+  <h1><b><%= @user.first %></b> <%= @user.last %></h1>
   <p><b>Member since:</b>  <%=@user.created_at.strftime("%m/%d/%Y") %></p>
   <p><b>Current City:</b> <%= @user.curr_city %>
   </div>

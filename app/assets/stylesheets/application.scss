@@ -7,10 +7,18 @@
  *= require_self
  */
 
-.navbar {
-  margin-bottom: 0;
+
+.navbar-default {
+    background-color: #93a8ac;
+    border-color: #E7E7E7;
+    margin-bottom: 0;
+    opacity: .8
 }
 
 li {
     margin-top: 15px;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
 }
