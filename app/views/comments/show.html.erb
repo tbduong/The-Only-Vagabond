@@ -1,4 +1,6 @@
 <h1> <%= @comment.title %> </h1>
 <p>
   <%= @comment.text %>
+  <%= button_to "Edit", edit_comment_path(@comment), method: :get %>
+  <%= button_to "delete", delete_comment_path(@comment), method: :delete %>
 </p>

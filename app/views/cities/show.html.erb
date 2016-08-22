@@ -2,7 +2,7 @@
   <img src=" <%=@city.city_image %>">
   <h1 class="city-name"> <%= @city.name %> </h1>
 </div>
-
+  <%= button_to "New Post", new_comment_path, method: :get %>
 <br>
 <% @city.comments.each do |comment| %>
 <div class="row">
