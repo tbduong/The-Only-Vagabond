@@ -20,20 +20,22 @@
       <div class="col-md-7 col-md-offset-1">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h4> <%= comment.city.name %>  </h4>
+            <h3> <%= comment.city.name %>  </h3>
             <div class='row'>
               <div class="col-md-12 col-xs-12">
-                <ul class="list-group">
-
-                  <li class="list-group-item">
-                    <%= link_to comment[:title], comment_path(comment[:id]) %>
-                  </li>
-
+                <div class="col-md-1 col-xs-12 thumbnail">
+                  <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
                 </div>
               </div>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <%= link_to comment[:title], comment_path(comment[:id]) %>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-      <% end %>
     </div>
+    <% end %>
+  </div>
