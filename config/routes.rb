@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root to: 'welcome#splash'
+  root to: 'welcome#index'
 
-  get '/' => 'welcome#splash'
+  get '/' => 'welcome#index'
 
   get '/signup', to: 'users#new', as: 'new_user'
   post '/users', to: 'users#create'

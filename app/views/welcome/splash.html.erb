@@ -11,16 +11,27 @@
   <div class="container-fluid img-wrapper">
     <p class="vagabond"> Vagabond </p>
   </div>
-  <div class="nav">
-    <% if current_user %>
-      <%= link_to 'profile', user_path(current_user), class: 'splash-a'%>
-      <%= link_to 'logout', logout_path, class: 'splash-a'%>
-    <% else %>
-    <%= link_to 'login', login_path, class: 'splash-a' %>
-    <%= link_to 'signup', new_user_path, class: 'splash-a'%>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to root_path('Vagabond') do %>
+          <span class="glyphicon glyphicon-globe"></span>
+          <% end %>
+        </li>
+        <li> <%= link_to 'All Cities', cities_path %> </li>
+        <li> <%= link_to 'Create Entry', new_comment_path %> </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li><%= link_to 'Profile', user_path(current_user) %></li>
+        <li><%= link_to 'Logout', logout_path %></li>
+        <% else %>
+        <li><%= link_to 'Login', login_path %></li>
+        <li><%= link_to 'Sign Up', new_user_path %></li>
+      </ul>
+    </div>
     <% end %>
-  </div>
-
+  </nav>
   <% flash.each do |i, m| %>
   <h2><%= m %></h2>
   <% end %>

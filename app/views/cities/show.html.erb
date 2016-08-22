@@ -3,14 +3,12 @@
   <h1 class="city-name"> <%= @city.name %> </h1>
 
 </div>
-<%= button_to "New Entry", new_comment_path, method: :get, :class => 'btn btn-primary add pull-right' %>
-<br>
 <% @city.comments.each do |comment| %>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3 comment-margin">
     <div class="panel panel-default">
       <div class="panel-body">
-        <h3> <%= link_to comment.title, comment_path(comment.id) %>  </h3>
+        <h3> <%= link_to comment.title, comment_path(comment.id), class: "link" %>  </h3>
         <h5> <%= comment.user.first %> </h5>
         <div class="panel-body"><p>
           <%= comment.text %>
