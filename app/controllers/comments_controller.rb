@@ -35,8 +35,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+    Comment.delete(params[:id])
     redirect_to city_path
   end
 
