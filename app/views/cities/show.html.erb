@@ -1,8 +1,9 @@
 <div class="image">
   <img src=" <%=@city.city_image %>">
   <h1 class="city-name"> <%= @city.name %> </h1>
+
 </div>
-  <%= button_to "New Entry", new_comment_path, method: :get, :class => 'btn btn-primary add' %>
+<%= button_to "New Entry", new_comment_path, method: :get, :class => 'btn btn-primary add pull-right' %>
 <br>
 <% @city.comments.each do |comment| %>
 <div class="row">

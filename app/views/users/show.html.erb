@@ -16,7 +16,6 @@
   </div>
   <div class="post-wrapper">
     <% current_user.comments.each do |comment| %>
-
     <div class="row">
       <div class="col-md-7 col-md-offset-1">
         <div class="panel panel-default">
@@ -29,7 +28,7 @@
                   <li class="list-group-item">
                     <%= link_to comment[:title], comment_path(comment[:id]) %>
                   </li>
-                  
+
                 </div>
               </div>
             </div>
