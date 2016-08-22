@@ -1,6 +1,20 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-h2, h3, h5 {
+h1, h2, h3, h5 {
     text-align: center;
+}
+
+.comment-title{
+    color: #93a8ac;
+    font-weight: bold;
+}
+
+.add{
+    margin-left:47%
+}
+
+h1 {
+  color: #93a8ac;
+  font-weight: bold;
 }

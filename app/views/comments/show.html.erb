@@ -1,6 +1,13 @@
-<h1> <%= @comment.title %> </h1>
-<p>
-  <%= @comment.text %>
-  <%= button_to "Edit", edit_comment_path(@comment), method: :get %>
-  <%= button_to "delete", delete_comment_path(@comment), method: :delete %>
-</p>
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <h1 class="comment-title" align="center"> <%= @comment.title %> </h1>
+<div class="panel">
+  <div class="panel-body">
+    <p>
+      <%= @comment.text %>
+      <%= button_to "Edit", edit_comment_path(@comment), method: :get, :class => 'btn btn-primary pull-right button' %>
+      <%= button_to "Delete", delete_comment_path(@comment), method: :delete, :class => 'btn btn-danger pull-right button' %>
+    </p>
+  </div>
+</div>
+</div>

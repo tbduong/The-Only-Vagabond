@@ -8,10 +8,17 @@
  */
 
 
-.other-nav {
-  text-align: right;
+.navbar-default {
+    background-color: #93a8ac;
+    border-color: #E7E7E7;
+    margin-bottom: 0;
+    opacity: .8
 }
 
-h1 {
-  font-family: "nunito"
+li {
+    margin-top: 15px;
+}
+
+.navbar-default .navbar-brand {
+    color: #ffffff;
 }
