@@ -8,6 +8,7 @@
  */
 
 
+
 .navbar-default {
     background-color: #93a8ac;
     border-color: #E7E7E7;
@@ -15,10 +16,11 @@
     opacity: .8
 }
 
-li {
-    margin-top: 15px;
-}
-
 .navbar-default .navbar-brand {
     color: #ffffff;
+}
+
+body {
+  background-color: #424b54;
+  color: white;
 }

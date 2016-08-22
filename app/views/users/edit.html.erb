@@ -6,15 +6,20 @@
 <h4>Excuse me sir/ma'am/fighter jet! <%= m %></h4>
 <% end %>
 
-<div class="col-md-3 col-xs-12 user-info-wrapper">
+<div class="col-md-3 col-xs-12">
   <div class="col-md-3 col-xs-12 thumbnail">
     <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
   </div>
   <h1><b><%= @user.first %></b> <%= @user.last %></h1>
   <p><b>Member since:</b>  <%=@user.created_at.strftime("%m/%d/%Y") %></p>
   <p><b>Current City:</b> <%= @user.curr_city %>
-  <%= link_to 'Edit Current City', edit_user_path(@user) %>
+  <%= form_for @user do |user| %>
+  <div>
+  <h3> <%= user.text_field :curr_city, placeholder: "Current City" %></h3>
   </div>
+  <%= user.submit "Change Current City",:class => "btn-primary signup" %>
+  <%end%>
+</div>
   <div class="post-wrapper">
     <% current_user.comments.each do |comment| %>
     <div class="row">
@@ -23,10 +28,16 @@
           <div class="panel-body">
             <h3> <%= comment.city.name %>  </h3>
             <div class='row'>
-
-              <div class="comment-title">
-                <%= link_to comment[:title], comment_path(comment[:id]) %>
+              <div class="col-md-12 col-xs-12">
+                <div class="col-md-1 col-xs-12 thumbnail">
+                  <img src="http://downloadicons.net/sites/default/files/anonymous-user-icon-80332.png" alt="profile image">
+                </div>
               </div>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <%= link_to comment[:title], comment_path(comment[:id]) %>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
