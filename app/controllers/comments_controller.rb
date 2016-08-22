@@ -22,6 +22,11 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find_by_id(params[:id])
+    if @comment.user_id != current_user.id
+      redirect_to '/'
+     end 
+    
+
   end
 
   def update

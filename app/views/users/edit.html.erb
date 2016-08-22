@@ -12,7 +12,7 @@
   </div>
   <h1><b><%= @user.first %></b> <%= @user.last %></h1>
   <p><b>Member since:</b>  <%=@user.created_at.strftime("%m/%d/%Y") %></p>
-  <p><b>Current City:</b> <%= best_in_place @user, :curr_city %>
+  <p><b>Current City:</b> <%= @user.curr_city %>
   <%= form_for @user do |user| %>
   <div>
   <h3> <%= user.text_field :curr_city, placeholder: "Current City" %></h3>
