@@ -1,6 +1,8 @@
-<h2> Cities Index </h2 >
+<h1> All Cities </h1>
+
 <% @cities.each do |city| %>
-  <div class="city">
-    <%= link_to city.name, city_path(city[:id]) %></li>
+
+  <div class="col-md-8 col-xs-offset-2 city" style="background-image: url(<%= city.city_image %>)">
+    <h4 id="city-name" align="center"> <%= link_to city.name, city_path(city) %> </h4>
   </div>
 <% end %>
