@@ -1,7 +1,7 @@
 <div class="image">
   <img src=" <%=@city.city_image %>">
   <h1 class="city-name"> <%= @city.name %> </h1>
-
+  <button> <%= link_to 'Create Entry', new_comment_path %> </button>
 </div>
 <% @city.comments.each do |comment| %>
 <div class="row">
