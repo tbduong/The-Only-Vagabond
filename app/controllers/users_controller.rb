@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in?, only: [:show]
-  
+  skip_before_action :authenticate!, only: [:show]
+
   def new
     @user = User.new
     render :new
@@ -19,14 +19,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_id(params[:id])
-    if id_authentic?
-      render :show
-    else
-      puts id_authentic?
+    if is_current_user_owner?(@user)
       flash[:notice] = 'You are not Authorized for this profile'
       redirect_to user_path(current_user.id)
     end
   end
+
   def edit
     @user = User.find_by_id(params[:id])
   end

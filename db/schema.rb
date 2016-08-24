@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20160821163844) do
     t.string   "title"
     t.string   "text"
     t.date     "date_post"
-    t.integer  "user_id"
-    t.integer  "city_id"
+    t.integer  "user_id" # add index on this field
+    t.integer  "city_id" # add index on this field
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

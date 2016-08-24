@@ -9,20 +9,25 @@ Rails.application.routes.draw do
   get  '/users/:id/edit', to: 'users#edit', as: 'edit_user'
   post '/users', to: 'users#create'
   patch '/users/:id', to: 'users#update', as: 'update_user'
- 
 
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
   post '/sessions', to: 'sessions#create'
 
-  get '/cities', to: 'cities#index', as: 'cities'
-  get '/cities/:id', to: 'cities#show', as: 'city'
+  resources :cities, shallow: true, only: [:index, :show] do
+    resources :comments, except: [:index]
+  end
 
-  get '/comments', to: 'comments#index', as: 'comments'
-  get '/comments/new', to: 'comments#new', as: 'new_comment'
-  get '/cities/:id/comments/:id', to: 'comments#show', as: 'comment'
-  post '/comments', to: 'comments#create'
-  get '/cities/:id/comments/:id/edit', to: 'comments#edit', as: 'edit_comment'
-  patch '/cities/:id/comments/:id', to: 'comments#update'
-  delete '/comments/:id', to: 'comments#destroy', as: "delete_comment"
+
+
+  # get '/cities', to: 'cities#index', as: 'cities'
+  # get '/cities/:id', to: 'cities#show', as: 'city'
+
+  # get '/comments', to: 'comments#index', as: 'comments'
+  # get '/comments/new', to: 'comments#new', as: 'new_comment'
+  # get '/cities/:city_id/comments/:id', to: 'comments#show', as: 'comment'
+  # post '/comments', to: 'comments#create'
+  # get '/cities/:city_id/comments/:id/edit', to: 'comments#edit', as: 'edit_comment'
+  # patch '/cities/:city_id/comments/:id', to: 'comments#update'
+  # delete '/comments/:id', to: 'comments#destroy'
 end

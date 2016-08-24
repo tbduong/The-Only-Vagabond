@@ -1,13 +1,16 @@
 class CommentsController < ApplicationController
+
+  skip_before_action :authenticate!, only: [:show, :index]
+  before_action :set_commment, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_authorized, only: [:edit, :update, :destroy]
+
   def index
     @comments = Comment.all
-    render :index
   end
 
   def new
     @comment = Comment.new
     @cities = City.all
-    render :new
   end
 
   def create
@@ -16,35 +19,36 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by_id(params[:id])
-    render :show
   end
 
   def edit
-    @comment = Comment.find_by_id(params[:id])
-    if @comment.user_id != current_user.id
-      redirect_to '/'
-     end 
-    
-
   end
 
   def update
-    @comment = Comment.find_by_id(params[:id])
     if @comment.update_attributes(comment_params)
       redirect_to user_path(current_user.id)
-    else
-      render "new"
-
     end
   end
 
   def destroy
-    Comment.delete(params[:id])
+    @comment.delete
     redirect_to city_path
   end
 
   private
+
+  def redirect_if_not_authorized
+    redirect_to '/' unless authorized?
+  end
+
+  def authorized?
+    @comment.user_id == current_user.id
+  end
+
+  def set_comment
+    @comment = Comment.find_by_id(params[:id])
+  end
+
   def comment_params
    params.require(:comment).permit(:id, :title, :text, :user_id, :city_id)
   end

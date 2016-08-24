@@ -7,25 +7,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid nav-height">
-      <ul class="nav navbar-nav navbar-left">
-        <li font-style="bold"><%= link_to "Vagabond", root_path %>
-        </li>
-        <li> <%= link_to 'All Cities', cities_path %> </li>
-       
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if current_user %>
-        <li><%= link_to 'Profile', user_path(current_user) %></li>
-        <li><%= link_to 'Logout', logout_path %></li>
-        <% else %>
-        <li><%= link_to 'Login', login_path %></li>
-        <li><%= link_to 'Sign Up', new_user_path %></li>
-      </ul>
-    </div>
-    <% end %>
-  </nav>
+  <% flash.each do |message| %>
+    <h4>Excuse me sir/ma'am/fighter jet! <%= message %></h4>
+  <% end %>
+
+  <%=  yield(:splash) if content_for?(:splash) %>
+
+  <%= render "nav_bar" %>
+
   <%= yield %>
+
 </body>
 </html>

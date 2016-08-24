@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
 
-	def new
+  skip_before_action :authenticate!, only: [:new, :create]
+
+  def new
 		@user = User.new
 		render :new
 	end
-	def create
+
+  def create
 		@user = User.confirm(user_params)
 		if @user
 			login(@user)
@@ -15,13 +18,15 @@ class SessionsController < ApplicationController
 			redirect_to login_path
 		end
 	end
-	def destroy
+
+  def destroy
 		session[:user_id] = nil
 		flash[:notice] = "Successfully logged out."
 		redirect_to root_path
 	end
 	private
-	def user_params
+
+  def user_params
 		params.require(:user).permit(:email, :password)
 	end
 end
